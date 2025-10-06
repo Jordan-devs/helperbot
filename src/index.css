@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --bg-gradient: linear-gradient(#f4f0ff, #dacdff);
+  --shadow-box: 0 0 128px 0 rgba(0, 0, 0, 0.1),
+    0 32px 64px -48px rgba(0, 0, 0, 0.5);
+  --color-primary: #6d4fc2;
+  --color-secondary: #593bab;
+  --radius-bot: 13px 13px 13px 3px;
+  --radius-user: 13px 13px 3px 13px;
+  --color-bot: #f6f2ff;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-inter);
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+/* Removed @layer utilities and replaced @apply with equivalent CSS */
+
+@layer utilities {
+  .chat-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    background-color: #fff;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-top: 1.375rem;
+    padding-bottom: 1.25rem;
+  }
+}
+
+.close-btn {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  overflow: hidden;
+  outline: none;
+}
+.close-btn:hover {
+  background-color: var(--color-secondary);
+}
+
+.chat-body {
+  height: 460px;
+  overflow-y: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 82px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd3f9 transparent;
+}
+
+.message {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.message-text {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.95rem;
+  max-width: 75%;
+  word-break: break-word;
+  white-space: pre-line;
+}
+
+.bot-message .message-text {
+  background-color: var(--color-bot);
+  border-radius: var(--radius-bot);
+}
+
+.user-message .message-text {
+  background-color: var(--color-primary);
+  color: #fff;
+  border-radius: var(--radius-user);
+}
+
+.user-message {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.header-info svg {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  padding: 5px;
+  background-color: #fff;
+  border-radius: 50%;
+  fill: var(--color-primary);
+}
+
+.bot-message svg {
+  width: 35px;
+  height: 35px;
+  flex-shrink: 0;
+  padding: 5px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  fill: white;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
